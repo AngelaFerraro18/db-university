@@ -40,7 +40,7 @@ SELECT <br>
     * <br>
 FROM <br>
     \`exams\` <br>
-WHERE (\`date\` = '2020/06/20') AND (HOUR(\`hour\`) >='14');
+WHERE (\`date\` = '2020/06/20') AND HOUR(\`hour\`) >=14;
 
 ### 6. Selezionare tutti i corsi di laurea magistrale (38)
 
