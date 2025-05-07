@@ -108,4 +108,20 @@ ORDER BY `teachers`.`id`;
 
 ```
 
+SELECT 
+   `students`.`id` AS `student_id`,
+   `students`.`name` AS `student_name`,
+   `students`.`surname` AS `student_surname`,
+   `degrees`.`name`AS `degree_name`,
+   `exams`.`id` AS `exam_id`,
+   COUNT(`exam_student`.`exam_id`) AS `tries`,
+   MAX(`exam_student`.`vote`) AS `max_vote`
+FROM `students`
+INNER JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id`
+INNER JOIN `exams` ON `exams`.`id` = `exam_student`.`exam_id`
+INNER JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id`
+GROUP BY `students`.`id`, `exams`.`id`, `degrees`.`name`
+HAVING MAX(`exam_student`.`vote`) >= 18
+ORDER BY `students`.`name`, `students`.`surname`
+
 ```
