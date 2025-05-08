@@ -23,9 +23,9 @@ ORDER BY `student_id`;
 SELECT 
     `degrees`.`id` AS `degrees_id`, `degrees`.`name` AS `degrees_name`, `degrees`.`level` AS `degrees_level`, `departments`. `name` AS `department_name`
 FROM
-    `degrees`
-INNER JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
-WHERE `level` = 'magistrale' AND `departments`. `name` = 'Dipartimento di Neuroscienze';
+    `departments`
+INNER JOIN `degrees` ON `departments`.`id` = `degrees`.`department_id`
+WHERE `degrees`.`level` = 'magistrale' AND `departments`. `name` = 'Dipartimento di Neuroscienze';
 
 ```
 
